@@ -5,96 +5,24 @@ import ExpensesList from './ExpensesList'
 import { GlobalStyles } from '../../constants/styles'
 
 
-const Dummy_EXPENSES = [
-    {
-        id: 'e1',
-        description: 'a pair of shoes',
-        amount: 3424.4534,
-        date: new Date('2024-04-13')
-    },
-    {
-        id: 'e2',
-        description: 'a pair of shoes',
-        amount: 3424.4534,
-        date: new Date('2024-04-12')
-    },
-    {
-        id: 'e3',
-        description: 'a pair sleeprs',
-        amount: 342.4534,
-        date: new Date('2024-04-11')
-    },
-    {
-        id: 'e4',
-        description: 'book',
-        amount: 544.4534,
-        date: new Date('2024-04-1')
-    },
-    {
-        id: 'e5',
-        description: 'a pair of shoes',
-        amount: 3424.4534,
-        date: new Date('2024-04-12')
-    },
-    {
-        id: 'e6',
-        description: 'a pair sleeprs',
-        amount: 342.4534,
-        date: new Date('2024-04-11')
-    },
-    {
-        id: 'e7',
-        description: 'book',
-        amount: 544.4534,
-        date: new Date('2024-04-1')
-    },
-    {
-        id: 'e8',
-        description: 'a pair of shoes',
-        amount: 3424.4534,
-        date: new Date('2024-04-12')
-    },
-    {
-        id: 'e9',
-        description: 'a pair sleeprs',
-        amount: 342.4534,
-        date: new Date('2024-04-11')
-    },
-    {
-        id: 'e10',
-        description: 'book',
-        amount: 544.4534,
-        date: new Date('2024-04-1')
-    },
-    {
-        id: 'e11',
-        description: 'a pair of shoes',
-        amount: 3424.4534,
-        date: new Date('2024-04-12')
-    },
-    {
-        id: 'e12',
-        description: 'a pair sleeprs',
-        amount: 342.4534,
-        date: new Date('2024-04-11')
-    },
-    {
-        id: 'e13',
-        description: 'book',
-        amount: 544.4534,
-        date: new Date('2024-04-1')
-    },
-]
 
 
 
 
 
-const ExpensesOutput = ({ expenses, expensesPeriod }) => {
+const ExpensesOutput = ({ expenses, expensesPeriod ,fallbackText}) => {
+    let content =<Text style={styles.infoText}>{fallbackText}</Text>
+
+
+    if(expenses.length>0){
+       content = <ExpensesList expenses={expenses} />
+        
+    }
+
     return (
         <View style={styles.container}>
-            <ExpensesSummary expenses={Dummy_EXPENSES} periodName={expensesPeriod} />
-            <ExpensesList expenses={Dummy_EXPENSES} />
+            <ExpensesSummary expenses={expenses} periodName={expensesPeriod} />
+            {content}
         </View>
     )
 }
@@ -107,5 +35,12 @@ const styles = StyleSheet.create({
         paddingHorizontal: 24,
         paddingTop: 24,
         backgroundColor: GlobalStyles.colors.primary700
+    },
+    infoText:{
+        color:'white',
+        fontSize:16,
+        textAlign:"center",
+        marginTop:32
+
     }
 })

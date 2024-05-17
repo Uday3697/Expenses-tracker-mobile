@@ -10,6 +10,7 @@ import { StatusBar } from 'expo-status-bar'
 import { GlobalStyles } from './constants/styles'
 import { Ionicons } from '@expo/vector-icons';
 import IconButton from './components/UI/IconButton'
+import ExpensesContextProvider from './store/expenses-context'
 
 
 const Stack = createNativeStackNavigator();
@@ -50,7 +51,8 @@ function ExpensesOverview() {
 const App = () => {
   return (
     <>
-      <StatusBar style='auto' />
+      <StatusBar style='light' />
+      <ExpensesContextProvider>
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={{
@@ -69,6 +71,7 @@ const App = () => {
           }} />
         </Stack.Navigator>
       </NavigationContainer>
+      </ExpensesContextProvider>
 
     </>
   )
