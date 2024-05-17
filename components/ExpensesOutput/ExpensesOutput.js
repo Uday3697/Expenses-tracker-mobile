@@ -8,81 +8,81 @@ import { GlobalStyles } from '../../constants/styles'
 const Dummy_EXPENSES = [
     {
         id: 'e1',
-        description:'a pair of shoes',
-        amount :3424.4534,
-        date:new Date('2024-04-13')
+        description: 'a pair of shoes',
+        amount: 3424.4534,
+        date: new Date('2024-04-13')
     },
     {
         id: 'e2',
-        description:'a pair of shoes',
-        amount :3424.4534,
-        date:new Date('2024-04-12')
+        description: 'a pair of shoes',
+        amount: 3424.4534,
+        date: new Date('2024-04-12')
     },
     {
         id: 'e3',
-        description:'a pair sleeprs',
-        amount :342.4534,
-        date:new Date('2024-04-11')
+        description: 'a pair sleeprs',
+        amount: 342.4534,
+        date: new Date('2024-04-11')
     },
     {
         id: 'e4',
-        description:'book',
-        amount :544.4534,
-        date:new Date('2024-04-1')
+        description: 'book',
+        amount: 544.4534,
+        date: new Date('2024-04-1')
     },
     {
-        id: 'e2',
-        description:'a pair of shoes',
-        amount :3424.4534,
-        date:new Date('2024-04-12')
+        id: 'e5',
+        description: 'a pair of shoes',
+        amount: 3424.4534,
+        date: new Date('2024-04-12')
     },
     {
-        id: 'e3',
-        description:'a pair sleeprs',
-        amount :342.4534,
-        date:new Date('2024-04-11')
+        id: 'e6',
+        description: 'a pair sleeprs',
+        amount: 342.4534,
+        date: new Date('2024-04-11')
     },
     {
-        id: 'e4',
-        description:'book',
-        amount :544.4534,
-        date:new Date('2024-04-1')
+        id: 'e7',
+        description: 'book',
+        amount: 544.4534,
+        date: new Date('2024-04-1')
     },
     {
-        id: 'e2',
-        description:'a pair of shoes',
-        amount :3424.4534,
-        date:new Date('2024-04-12')
+        id: 'e8',
+        description: 'a pair of shoes',
+        amount: 3424.4534,
+        date: new Date('2024-04-12')
     },
     {
-        id: 'e3',
-        description:'a pair sleeprs',
-        amount :342.4534,
-        date:new Date('2024-04-11')
+        id: 'e9',
+        description: 'a pair sleeprs',
+        amount: 342.4534,
+        date: new Date('2024-04-11')
     },
     {
-        id: 'e4',
-        description:'book',
-        amount :544.4534,
-        date:new Date('2024-04-1')
+        id: 'e10',
+        description: 'book',
+        amount: 544.4534,
+        date: new Date('2024-04-1')
     },
     {
-        id: 'e2',
-        description:'a pair of shoes',
-        amount :3424.4534,
-        date:new Date('2024-04-12')
+        id: 'e11',
+        description: 'a pair of shoes',
+        amount: 3424.4534,
+        date: new Date('2024-04-12')
     },
     {
-        id: 'e3',
-        description:'a pair sleeprs',
-        amount :342.4534,
-        date:new Date('2024-04-11')
+        id: 'e12',
+        description: 'a pair sleeprs',
+        amount: 342.4534,
+        date: new Date('2024-04-11')
     },
     {
-        id: 'e4',
-        description:'book',
-        amount :544.4534,
-        date:new Date('2024-04-1')
+        id: 'e13',
+        description: 'book',
+        amount: 544.4534,
+        date: new Date('2024-04-1')
     },
 ]
 
@@ -94,7 +94,7 @@ const ExpensesOutput = ({ expenses, expensesPeriod }) => {
     return (
         <View style={styles.container}>
             <ExpensesSummary expenses={Dummy_EXPENSES} periodName={expensesPeriod} />
-            <ExpensesList expenses={Dummy_EXPENSES}/>
+            <ExpensesList expenses={Dummy_EXPENSES} />
         </View>
     )
 }
@@ -102,10 +102,10 @@ const ExpensesOutput = ({ expenses, expensesPeriod }) => {
 export default ExpensesOutput
 
 const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        paddingHorizontal:24,
-        paddingTop:24,
-        backgroundColor:GlobalStyles.colors.primary700
+    container: {
+        flex: 1,
+        paddingHorizontal: 24,
+        paddingTop: 24,
+        backgroundColor: GlobalStyles.colors.primary700
     }
 })
