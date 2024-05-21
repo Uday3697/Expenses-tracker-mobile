@@ -4,12 +4,15 @@ import IconButton from '../components/UI/IconButton';
 import { GlobalStyles } from '../constants/styles';
 import Button from '../components/UI/Button';
 import { ExpensesContext } from '../store/expenses-context';
+import ExpenseForm from '../components/ManageExpense/ExpenseForm';
 
 const ManageExpenses = ({ route, navigation }) => {
   const editExpenseId = route.params?.expenseId
   const isEditing = !!editExpenseId;
 
   const expenseCtx=useContext(ExpensesContext)
+
+  const selectedExpense=expenseCtx.expenses.find(expense=>expense.id)
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -26,15 +29,9 @@ const ManageExpenses = ({ route, navigation }) => {
     navigation.goBack()
 
   }
-  function confermHandler() {
+  function confermHandler(expenseData) {
     if(isEditing){
-      expenseCtx.updateExpense(editExpenseId,
-        {
-          description:"test!!!!!!",
-          amount:162,
-          date :new Date('2024,05,20'),
-        }
-      )
+      expenseCtx.updateExpense(editExpenseId,expenseData)
 
     }else {
       expenseCtx.addExpense({
@@ -50,10 +47,13 @@ const ManageExpenses = ({ route, navigation }) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.buttonContainer}>
-        <Button style={styles.button} mode={'flat'} onPress={cancelHandler}>Cancel</Button>
-        <Button style={styles.button} onPress={confermHandler}>{isEditing ? 'update' : 'Add'}</Button>
-      </View>
+      <ExpenseForm  
+      onCanel={cancelHandler} 
+      submitButtonLabel={isEditing ? 'update' : 'Add'} 
+      onSubmit={confermHandler}
+      defaultValues={selectedExpense}
+      />
+     
       {isEditing &&
         (<View style={styles.deleteCOntainer}>
           <IconButton icon='trash' color={GlobalStyles.colors.error500} size={35} onpress={deletePress} />
